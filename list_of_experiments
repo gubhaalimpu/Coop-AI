@@ -1,0 +1,32 @@
+## experiment 1:
+5 agents on each politcal party 
+policy: 
+if two agents acting at the same time misinform, they get a reward of -2 each
+if one agent misinforms, while the other is truthful, the former gets +5, while the latter (and all other agents of latter's party') receives a -5 reward
+if both agents acting simultaneously are truthful, they get a reward of -1 each. 
+
+### observations:
+1. The code was incorrect, the code was assigning an action to each agent and iteratively the agent would act. At the end of an episode \
+    the Q-table would be updated where an agent independently learns how to maximize rewards. The policy of two agents choosing the same \
+        action together (rewards of -2 each) is not applied.
+
+
+## experiment 2:
+5 agents on each political party
+policy: 
+if two agents acting at the same time misinform, they get a reward of -2 each
+if one agent misinforms, while the other is truthful, the former gets +5, while the latter (and all other agents of latter's party') receives a -5 reward
+if both agents acting simultaneously are truthful, they get a reward of -1 each. 
+
+### observations:
+1. The code was corrected, a random yellow agent was picked and partnered with a random green agent, the policy was applied successfully.
+2. The plot shows that initially the rewards start slow
+3. We then observe that the rewards increase for the party that chooses to misinform while the other party's rewards decrease.
+4. The agents then learn that choosing to misinform de-stabilizes and pushes the other party to do the same.
+5. The agents of both parties then learn to reduce the number of defections.
+6. Both parties learn to defect at the same rate and stabilize. 
+6. Running the experiment again showed a non-collaborative approach.
+7. One party chose to consistently misinform and saw increased rewards and learned that policy.
+8. The other party showed consitent truthful behavior but increased its defection rate to increase their rewards.
+9. Number of episodes for the second run if increased might result in the previous observation.
+
