@@ -74,7 +74,7 @@ class QLearning:
         self.env = PoliticalDebateEnv()
         self.q_tables = {f"{agent}_{i}": np.zeros((1, 2)) for agent in self.env.agents for i in range(self.env.num_agents_per_party)}
         self.learning_rate = 0.1
-        self.discount_factor = 0.95
+        self.discount_factor = 0.5
         self.exploration_rate = 1.0
         self.exploration_decay = 0.995
         self.min_exploration_rate = 0.01

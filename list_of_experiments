@@ -1,9 +1,16 @@
 ## experiment 1:
-5 agents on each politcal party 
+5 agents in each politcal party 
 policy: 
 if two agents acting at the same time misinform, they get a reward of -2 each
 if one agent misinforms, while the other is truthful, the former gets +5, while the latter (and all other agents of latter's party') receives a -5 reward
 if both agents acting simultaneously are truthful, they get a reward of -1 each. 
+
+hyperparameters:
+self.learning_rate = 0.1
+self.discount_factor = 0.95
+self.exploration_rate = 1.0
+self.exploration_decay = 0.995
+self.min_exploration_rate = 0.01
 
 ### observations:
 1. The code was incorrect, the code was assigning an action to each agent and iteratively the agent would act. At the end of an episode \
@@ -12,11 +19,18 @@ if both agents acting simultaneously are truthful, they get a reward of -1 each.
 
 
 ## experiment 2:
-5 agents on each political party
+5 agents in each political party
 policy: 
 if two agents acting at the same time misinform, they get a reward of -2 each
 if one agent misinforms, while the other is truthful, the former gets +5, while the latter (and all other agents of latter's party') receives a -5 reward
 if both agents acting simultaneously are truthful, they get a reward of -1 each. 
+
+hyperparameters:
+self.learning_rate = 0.1
+self.discount_factor = 0.95
+self.exploration_rate = 1.0
+self.exploration_decay = 0.995
+self.min_exploration_rate = 0.01
 
 ### observations:
 1. The code was corrected, a random yellow agent was picked and partnered with a random green agent, the policy was applied successfully.
@@ -30,3 +44,20 @@ if both agents acting simultaneously are truthful, they get a reward of -1 each.
 8. The other party showed consitent truthful behavior but increased its defection rate to increase their rewards.
 9. Number of episodes for the second run if increased might result in the previous observation.
 
+
+## experiment 3:
+policy: 
+if two agents acting at the same time misinform, they get a reward of -2 each
+if one agent misinforms, while the other is truthful, the former gets +5, while the latter (and all other agents of latter's party') receives a -5 reward
+if both agents acting simultaneously are truthful, they get a reward of -1 each. 
+
+hyperparameters:
+self.learning_rate = 0.1
+self.discount_factor = 0.5
+self.exploration_rate = 1.0
+self.exploration_decay = 0.995
+self.min_exploration_rate = 0.01
+
+### observations:
+1. The discount factor was reduced, meaning same importance was given to immediate rewards as much as long-term rewards
+2. The rewards obtained by the party that misinformed, consistently reached 750, compared to when there was a high discount factor and the parties' converged in policy.
